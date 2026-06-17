@@ -186,6 +186,7 @@ const UserList = () => {
             </svg>
         );
     };
+    const isLoggedIn = !!currentUser?.id;
 
     return (
         <div className="container">
@@ -199,7 +200,7 @@ const UserList = () => {
                 }
             />
 
-            <table>
+                {isLoggedIn && (<table>
                 <thead>
                     <tr>
 
@@ -264,7 +265,7 @@ const UserList = () => {
                         )
                     )}
                 </tbody>
-            </table>
+            </table>)}
         </div>
     );
 };
