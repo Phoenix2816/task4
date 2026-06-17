@@ -157,9 +157,8 @@ const UserAction = ({ selectedUsers, setSelectedUsers }) => {
     const hasSelected = selectedUsers.length > 0;
     const hasUnverified = users.some( user => user.status === "unverified");
     const isLoggedIn = !!currentUser?.id;
-    const isVerified = currentUser?.status === "active";
     const isBlocked = currentUser?.is_blocked === 1 || currentUser?.is_blocked === true;
-    const canSelectActions = isLoggedIn && isVerified && !isBlocked && hasSelected;
+    const canSelectActions = isLoggedIn && !isBlocked && hasSelected;
 
 
     return (
@@ -175,16 +174,6 @@ const UserAction = ({ selectedUsers, setSelectedUsers }) => {
                 </div>
             )}
 
-            {currentUser && !isVerified && (
-                <div
-                    style={{
-                        color: "orange",
-                        marginBottom: "10px"
-                    }}
-                >
-                    Verify your email to use user management actions.
-                </div>
-            )}
             {isBlocked && (
                 <div
                     style={{
