@@ -69,7 +69,7 @@ async function startServer() {
             port: 10040,
 
             ssl: {
-                ca: fs.readFileSync("./certificates/ca.pem")
+                ca: fs.readFileSync(path.join(__dirname, "certificates", "ca.pem"), "utf8"))
             },
 
             waitForConnections: true,
