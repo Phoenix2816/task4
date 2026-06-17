@@ -170,7 +170,7 @@ const UserAction = ({ selectedUsers, setSelectedUsers }) => {
                         marginBottom: "10px"
                     }}
                 >
-                    Login to manage users.
+                    Login to see and manage users.
                 </div>
             )}
 
