@@ -1,5 +1,8 @@
 import React from "react";
 import ReactTimeAgo from "react-time-ago";
+import en from "javascript-time-ago/locale/en";
+
+TimeAgo.addDefaultLocale(en);
 
 
 const User = ({
