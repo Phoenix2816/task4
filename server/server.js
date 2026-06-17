@@ -6,10 +6,10 @@ const mysql = require("mysql2/promise");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
-const path = require("path");
 const app = express();
 const { v4: uuidv4 } = require("uuid");
 const emailjs = require("@emailjs/nodejs");
+
 const authMiddleware = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
@@ -70,7 +70,7 @@ async function startServer() {
             port: 10040,
 
             ssl: {
-                ca: fs.readFileSync(path.join(__dirname, "certificates", "ca.pem"), "utf8")
+                ca: fs.readFileSync("./certificates/ca.pem")
             },
 
             waitForConnections: true,
@@ -373,6 +373,10 @@ async function startServer() {
             }
         });
 
+        // START SERVER 
+        app.listen(process.env.PORT, () => {
+            console.log(`Server running on port ${process.env.PORT}`);
+        });
 
     } catch (err) {
         console.error("DB connection failed:", err);
@@ -380,4 +384,3 @@ async function startServer() {
 }
 
 startServer();
-module.exports = app;
