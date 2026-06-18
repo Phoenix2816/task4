@@ -216,7 +216,6 @@ const UserList = () => {
         <div className="container">
 
 
-                {isLoggedIn && (<table>
             <UserAction
                 selectedUsers={
                     selectedUsers
@@ -225,6 +224,7 @@ const UserList = () => {
                     setSelectedUsers
                 }
             />
+                {isLoggedIn && (<table>
                 <thead>
                     <tr>
 
