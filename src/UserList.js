@@ -189,6 +189,13 @@ const UserList = () => {
             </svg>
         );
     };
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+    
+        if (user) {
+            setCurrentUser(JSON.parse(user));
+        }
+    }, []);
     const isLoggedIn = !!currentUser?.id;
 
     return (
