@@ -190,11 +190,28 @@ const UserList = () => {
         );
     };
     useEffect(() => {
-        const user = localStorage.getItem("user");
+        const updateUser = () => {
+            const user = localStorage.getItem("user");
     
-        if (user) {
-            setCurrentUser(JSON.parse(user));
-        }
+            if (user) {
+                setCurrentUser(JSON.parse(user));
+            } else {
+                setCurrentUser(null);
+            }
+        };
+    
+        updateUser();
+    
+        window.addEventListener(
+            "userChanged",
+            updateUser
+        );
+    
+        return () =>
+            window.removeEventListener(
+                "userChanged",
+                updateUser
+            );
     }, []);
     const isLoggedIn = !!currentUser?.id;
 
