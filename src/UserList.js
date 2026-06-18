@@ -30,28 +30,26 @@ const UserList = () => {
     }, [setUsers]);
 
     useEffect(() => {
-
+        if (!currentUser) return;
+    
         refreshUsers();
-
+    
         const handleUserChanged = () => {
             refreshUsers();
         };
-
+    
         window.addEventListener(
             "userChanged",
             handleUserChanged
         );
-
+    
         return () => {
-
             window.removeEventListener(
                 "userChanged",
                 handleUserChanged
             );
-
         };
-
-    }, [refreshUsers]);
+    }, [refreshUsers, currentUser]);
 
     const select = () => {
 
