@@ -26,6 +26,7 @@ table {
 header{
   display: flex;
   justify-content: space-evenly;
+  width: 80vw;
   align-items: center;
   padding: 15px 30px;
   background-color: #f5f5f5;
