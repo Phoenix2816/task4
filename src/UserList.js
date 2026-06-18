@@ -7,6 +7,9 @@ const UserList = () => {
 
     const { users, setUsers } = useContext(UserContext);
     const [selectedUsers, setSelectedUsers] = useState([]);
+    (UserContext);
+
+    const [currentUser, setCurrentUser] = useState(null);
     const [sortConfig, setSortConfig] =
         useState({
             key: "last_login_time",
